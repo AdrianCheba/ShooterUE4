@@ -14,4 +14,6 @@ class SHOOTERUE4_API AShooterUE4GameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
 	
+public:
+	virtual void PawnKilled(APawn* PawnKilled);
 };
