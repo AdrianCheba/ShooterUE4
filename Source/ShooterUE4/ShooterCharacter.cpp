@@ -60,11 +60,13 @@ float AShooterCharacter::TakeDamage(float DamageAmount, FDamageEvent const& Dama
 
 	if (IsDead())
 	{
-		DetachFromControllerPendingDestroy();
-		GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 		AShooterUE4GameModeBase* GameMode = GetWorld()->GetAuthGameMode<AShooterUE4GameModeBase>();
+
 		if (GameMode)
 			GameMode->PawnKilled(this);
+
+		DetachFromControllerPendingDestroy();
+		GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);		
 	}
 
 	return DamageToApply;
